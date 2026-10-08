@@ -23,3 +23,14 @@ test('calculateTotal suma el IVA solo con includeTax', () => {
   assert.equal(calculateTotal(items), 100);
   assert.equal(calculateTotal(items, { includeTax: true }), 113);
 });
+
+
+test('aplica descuento y luego IVA: 100 con SAVE10 da 101.70', () => {
+  assert.equal(
+    calculateTotal(
+      [{ price: 100, quantity: 1 }],
+      { discountCode: 'SAVE10', includeTax: true }
+    ),
+    101.7,
+  );
+});
