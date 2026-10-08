@@ -13,6 +13,11 @@
  * formatPrice(25.5)  // 'Bs 25.50'
  * formatPrice(0)     // 'Bs 0.00'
  */
-export function formatPrice(amount) {
-  return `Bs ${amount.toFixed(2)}`;
+import { convert, getCurrency } from './currency.js';
+
+export function formatPrice(amount, currency = 'BOB') {
+  const converted = convert(amount, currency);
+  const { symbol } = getCurrency(currency);
+
+  return `${symbol} ${converted.toFixed(2)}`;
 }
