@@ -1,3 +1,5 @@
+//confictos
+
 import { round2 } from './money.js';
 
 export const CURRENCIES = {
