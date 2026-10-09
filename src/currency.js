@@ -1,5 +1,3 @@
-//confictos
-
 import { round2 } from './money.js';
 
 export const CURRENCIES = {
@@ -7,7 +5,7 @@ export const CURRENCIES = {
   USD: { symbol: '$', rate: 0.145 },
   EUR: { symbol: '€', rate: 0.133 },
 };
-
+// Convierte un monto en BOB a la moneda indicada
 export function getCurrency(code) {
   const currency = CURRENCIES[code];
 
@@ -17,7 +15,6 @@ export function getCurrency(code) {
 
   return currency;
 }
-
 export function convert(amount, code = 'BOB') {
   const currency = getCurrency(code);
   return round2(amount * currency.rate);
