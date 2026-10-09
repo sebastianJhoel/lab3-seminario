@@ -8,16 +8,14 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 ## [Unreleased]
 
 ### Added
-- Códigos de descuento (`applyDiscount`, `DISCOUNT_CODES`) y opción `discountCode` en `calculateTotal`.
-
-- Impuesto IVA 13 % (`calculateTax`, `addTax`) y opción `includeTax` en `calculateTotal`.
+- Soporte para conversión de precios a BOB, USD y EUR.
+- Funciones `getCurrency` y `convert` para manejar monedas.
 
 ### Changed
-
+- `formatPrice` ahora acepta una moneda como segundo parámetro.
+- Los precios pueden mostrarse en diferentes monedas.
 ### Fixed
-
 ## [1.0.0] - 2026-10-01
-
 ### Added
 - Catálogo de productos (`products`, `findProductBySku`, `searchProducts`).
 - Cálculo del total de un carrito (`calculateTotal`).
