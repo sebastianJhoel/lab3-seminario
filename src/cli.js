@@ -24,12 +24,28 @@ const commands = {
     const items = specs.map((spec) => {
       const [sku, qty = '1'] = spec.split(':');
       const product = findProductBySku(sku);
+
       if (!product) {
         console.error(`SKU desconocido: ${sku}`);
         process.exit(1);
       }
-      return { name: product.name, price: product.price, quantity: Number(qty) };
+
+      const quantity = Number(qty);
+
+      if (!Number.isInteger(quantity) || quantity <= 0) {
+        console.error(
+          `Cantidad inválida para ${sku}: ${qty}. Debe ser un entero mayor que 0.`,
+        );
+        process.exit(1);
+      }
+
+      return {
+        name: product.name,
+        price: product.price,
+        quantity,
+      };
     });
+
     console.log(buildReceipt(items));
   },
 };
