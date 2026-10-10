@@ -1,18 +1,38 @@
+
 /**
  * Da formato a un precio para mostrarlo al usuario.
  *
  * Reglas actuales:
- *  - Siempre se muestra en bolivianos (Bs).
- *  - Siempre con dos decimales.
+ *  - Permite seleccionar la moneda (BOB, USD o EUR).
+ *  - Siempre muestra dos decimales.
+ *  - Opcionalmente rellena a la izquierda hasta un ancho mínimo.
  *
- * @param {number} amount Monto a formatear.
+ * @param {number} amount Monto en bolivianos.
+ * @param {object|string} [options] Moneda o configuración.
+ * @param {string} [options.currency='BOB'] Moneda de destino.
+ * @param {number} [options.width=0] Ancho mínimo del texto.
  * @returns {string} Precio formateado.
  *
  * @example
- * formatPrice(10)    // 'Bs 10.00'
- * formatPrice(25.5)  // 'Bs 25.50'
- * formatPrice(0)     // 'Bs 0.00'
+ * formatPrice(10)                    // 'Bs 10.00'
+ * formatPrice(10, 'USD')             // '$ 1.45'
+ * formatPrice(10, { width: 12 })     // '    Bs 10.00'
+ * formatPrice(10, { currency: 'EUR' }) // '€ 1.33'
  */
-export function formatPrice(amount) {
-  return `Bs ${amount.toFixed(2)}`;
+import { convert, getCurrency } from './currency.js';
+
+export function formatPrice(amount, options = {}) {
+  let currency = 'BOB';
+  let width = 0;
+
+  if (typeof options === 'string') {
+    currency = options;
+  } else {
+    ({ currency = 'BOB', width = 0 } = options);
+  }
+
+  const converted = convert(amount, currency);
+  const { symbol } = getCurrency(currency);
+
+  return `${symbol} ${converted.toFixed(2)}`.padStart(width);
 }
