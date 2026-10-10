@@ -8,7 +8,12 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-10-09
+
+### Fixed
+-La búsqueda de productos ya no distingue mayúsculas de minúsculas.
 ## [1.1.0] - 2026-10-09
+
 
 ### Added
 - Códigos de descuento (`applyDiscount`, `DISCOUNT_CODES`) y opción `discountCode` en `calculateTotal`.
@@ -24,9 +29,7 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [1.0.0] - 2026-10-01
 
-### Fixed
 
-## [1.0.0] - 2026-10-01
 
 ### Added
 - Catálogo de productos (`products`, `findProductBySku`, `searchProducts`).
