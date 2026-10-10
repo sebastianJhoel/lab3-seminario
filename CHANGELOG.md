@@ -8,7 +8,11 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-09
+
 ### Added
+- Códigos de descuento (`applyDiscount`, `DISCOUNT_CODES`) y opción `discountCode` en `calculateTotal`.
+- Impuesto IVA 13 % (`addTax`, `calculateTax`) y opción `includeTax` en `calculateTotal`.
 - Soporte para conversión de precios a BOB, USD y EUR.
 - Funciones `getCurrency` y `convert` para manejar monedas.
 - Recibo imprimible (`buildReceipt`) y comando CLI `receipt SKU:CANTIDAD`.
@@ -17,6 +21,8 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 ### Changed
 - `formatPrice` ahora acepta una moneda como segundo parámetro.
 - Los precios pueden mostrarse en diferentes monedas.
+
+## [1.0.0] - 2026-10-01
 
 ### Fixed
 
